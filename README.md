@@ -1,16 +1,10 @@
-# mobile_app
+Screenshot of the App
 
-A new Flutter project.
 
-## Getting Started
+![Screenshot_20230703_200317](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/fb4ba163-e566-4208-af93-82c5ef59ed49)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot_20230703_200353](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/4f1f3ac5-3b39-404f-87ae-02794ccf7310)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_20230703_202741](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/985e5a72-7bcd-4ebc-b809-2505936426b1)
