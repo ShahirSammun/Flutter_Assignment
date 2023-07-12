@@ -11,7 +11,7 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  String _location = '';
+  String _location = 'Sylhet';
   String _temperature = '';
   String _weatherDescription = '';
   String _weatherIconUrl = '';
@@ -77,7 +77,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF873bcc),
-        title: const Text('Weather App'),
+        title: const Text(' Flutter Weather'),
         centerTitle: true,
         actions: [
           IconButton(
