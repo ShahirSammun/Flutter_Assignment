@@ -117,7 +117,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 Text(
                   _errorMessage,
                   style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 )
