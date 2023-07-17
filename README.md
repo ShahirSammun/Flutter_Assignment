@@ -1,16 +1,12 @@
-# mobile_app
+Screenshot of The App
 
-A new Flutter project.
+Landscape Mode
 
-## Getting Started
+![Screenshot_20230717_202334](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/194d38ef-50e0-4654-8d07-813e0856ae4b)
 
-This project is a starting point for a Flutter application.
+Portrait Mode
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot_20230717_202605](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/a29ceb2c-cb0e-4f93-b436-e223147fd402)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
