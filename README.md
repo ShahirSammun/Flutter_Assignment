@@ -2,7 +2,7 @@ Screenshot of The App
 
 Landscape Mode
 
-![Screenshot_20230717_202334](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/194d38ef-50e0-4654-8d07-813e0856ae4b)
+![Screenshot_20230717_202334](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/aaa922ff-4ab3-4280-b29a-dd7194339e7e)
 
 Portrait Mode
 
