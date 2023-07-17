@@ -1,194 +1,130 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 
-
-class WeatherScreen extends StatefulWidget {
-  const WeatherScreen({super.key});
-
-  @override
-  _WeatherScreenState createState() => _WeatherScreenState();
-}
-
-class _WeatherScreenState extends State<WeatherScreen> {
-  String _location = 'Sylhet';
-  String _temperature = '';
-  String _weatherDescription = '';
-  String _weatherIconUrl = '';
-  String _feelsLike = '';
-  String _tempMin = '';
-  String _tempMax = '';
-  bool _isLoading = false;
-  String _errorMessage = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _fetchWeatherData();
-  }
-
-  Future<void> _fetchWeatherData() async {
-    _isLoading = true;
-    if (mounted) {
-      setState(() {});
-    }
-
-    try {
-      final Response response = await get
-        (Uri.parse
-        ('https://api.openweathermap.org/data/2.5/weather?q=sylhet&appid=8b5ccf4725ba84043b991cfcc8ed93b9&units=metric'));
-
-      //print(response.body);
-      if (response.statusCode == 200) {
-        final jsonData = json.decode(response.body);
-        final mainData = jsonData['main'];
-        final weatherData = jsonData['weather'][0];
-
-        _location = jsonData['name'];
-        _temperature = mainData['temp'].toString();
-        _weatherDescription = weatherData['description'];
-        _feelsLike = mainData['feels_like'].toString();
-        _tempMax = mainData['temp_max'].toString();
-        _tempMin = mainData['temp_min'].toString();
-        _weatherIconUrl =
-        'http://openweathermap.org/img/w/${weatherData['icon']}.png';
-        _isLoading = false;
-        if (mounted) {
-          setState(() {});
-        }
-      } else {
-        _errorMessage = 'Error fetching weather data';
-        _isLoading = false;
-        if (mounted) {
-          setState(() {});
-        }
-      }
-    } catch (error) {
-      _errorMessage = 'Error fetching weather data';
-      _isLoading = false;
-      if (mounted) {
-        setState(() {});
-      }
-    }
-  }
+class PortraitLayoutScreen extends StatelessWidget {
+  const PortraitLayoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF873bcc),
-        title: const Text(' Flutter Weather'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {
-              _fetchWeatherData();
-              if (mounted) {
-                setState(() {});
-              }
-            },
-            icon: const Icon(Icons.refresh),
-          )
-        ],
-      ),
-      body: _isLoading
-          ? const Center(
-        child: CircularProgressIndicator(),
-      )
-          : Center(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xff450185),
-                Color(0xFF873bcc),
+    final screenSize = MediaQuery.sizeOf(context);
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.green,
+                  radius: screenSize.width / 2,
+                  child: CircleAvatar(
+                    radius: (screenSize.width / 2),
+                    backgroundImage: const NetworkImage(
+                        'https://images.pexels.com/photos/13119085/pexels-photo-13119085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                  ),
+                ),
+                const Text(
+                  'Kawasaki Z1000',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'The Kawasaki Z1000 is a superbike made in Japan by Kawasaki, which has an inline four engine of 998cc with 140bhp at 11000 rpm and 111NM of torque and a top speed of 255kmph.',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            GridView.count(
+              physics: const ScrollPhysics(),
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+              shrinkWrap: true,
+              crossAxisCount: 3,
+              children: [
+                for (int i = 1; i <= 9; i++)
+                  Image.asset(
+                      'image/Z1000.jpg',
+                      fit: BoxFit.fill),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LandscapeLayoutScreen extends StatelessWidget {
+  const LandscapeLayoutScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.sizeOf(context);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            backgroundColor: Colors.green,
+            radius: screenSize.width / 6,
+            child: CircleAvatar(
+              radius: (screenSize.width / 6),
+              backgroundImage: const NetworkImage(
+                  'https://images.pexels.com/photos/13119085/pexels-photo-13119085.jpeg?cs=srgb&dl=pexels-denniz-futalan-13119085.jpg&fm=jpg'),
             ),
           ),
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (_errorMessage.isNotEmpty)
-                Text(
-                  _errorMessage,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                )
-              else
-                Column(
-                  children: [
-                    Text(
-                      _location,
-                      style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-
-                    const SizedBox(height: 16.0),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.network(
-                          _weatherIconUrl,
-                          errorBuilder: (_, __, ___) {
-                            return const Icon(
-                              Icons.image,
-                            );
-                          },
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          '$_temperature°C',
-                          style: const TextStyle(
-                              fontSize: 20, color: Colors.white),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Max: $_tempMax°C',
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              'Min: $_tempMin°C',
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                            Text(
-                              'Feels Like: $_feelsLike°C',
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 18.0),
-                    Text(
-                      'Weather: $_weatherDescription',
-                      style: const TextStyle(
-                          fontSize: 20, color: Colors.white),
-                    ),
-                  ],
-                ),
-            ],
+          const SizedBox(
+            width: 10,
           ),
-        ),
+          SingleChildScrollView(
+            child: SizedBox(
+              width: (screenSize.width) - (screenSize.width / 3) - 26,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Kawasaki Z1000',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'The Kawasaki Z1000 is a superbike made in Japan by Kawasaki, which has an inline four engine of 998cc with 140bhp at 11000 rpm and 111NM of torque and a top speed of 255kmph.',
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GridView.count(
+                    physics: const ScrollPhysics(),
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                    shrinkWrap: true,
+                    crossAxisCount: 3,
+                    children: [
+                      for (int i = 1; i <= 10; i++)
+                        Image.asset(
+                          'image/Z1000.jpg',
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
