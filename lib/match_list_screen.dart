@@ -12,7 +12,7 @@ class MatchListScreen extends StatelessWidget {
         title: const Text('Match List'),
     ),
     body: StreamBuilder<QuerySnapshot>(
-    stream: FirebaseFirestore.instance.collection('Football').snapshots(),
+    stream: FirebaseFirestore.instance.collection('Argentina vs Brazil').snapshots(),
     builder: (context, snapshot) {
     if(snapshot.connectionState == ConnectionState.waiting){
     return const Center(
@@ -35,11 +35,11 @@ class MatchListScreen extends StatelessWidget {
     context,
     MaterialPageRoute(
     builder: (context) => MatchDetailsScreen(
-    matchName: item.get('MatchName'),
+    matchName: item.get('match_name'),
     matchId: item.id,
     )));
     },
-    title: Text(item.get('Team1') + ' vs ' + item.get('Team2')),
+    title: Text(item.get('team_a') + ' vs ' + item.get('team_b')),
     trailing: const Icon(Icons.arrow_forward),
     );
     });
