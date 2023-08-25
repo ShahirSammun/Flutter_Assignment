@@ -1,7 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'match_list_screen.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -12,32 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Orientation Demo',
+      title: 'Firebase App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OrientationScreen(),
-    );
-  }
-}
-class OrientationScreen extends StatelessWidget {
-  const OrientationScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text('Kawasaki Racing Team'),
-        centerTitle: true,
-      ),
-      body: OrientationBuilder(
-        builder: (context, orientation) {
-          return orientation == Orientation.portrait
-              ? const PortraitLayoutScreen()
-              : const LandscapeLayoutScreen();
-        },
-      ),
+      home: const MatchListScreen(),
     );
   }
 }
