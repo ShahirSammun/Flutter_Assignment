@@ -34,7 +34,7 @@ class MatchDetailsScreen extends StatelessWidget {
                         Text(
                           item?.get('team_a') + ' vs ' + item?.get('team_b'),
                           style: const TextStyle(
-                              fontSize: 24,
+                              fontSize: 26,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                         ),
@@ -42,19 +42,16 @@ class MatchDetailsScreen extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          item?.get('team_a') + ' : ' + item?.get('score_a'),
-                          style: const TextStyle(fontSize: 20),
+                          item?.get('score_a') + ' : ' + item?.get('score_b'),
+                          style: const TextStyle(
+                              fontSize: 22,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          item?.get('team_b') + ' : ' + item?.get('score_b'),
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+
                         Text(
                           "Time : ${item?.get('time')}",
                           style: const TextStyle(fontSize: 20),
