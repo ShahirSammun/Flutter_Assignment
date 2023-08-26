@@ -12,7 +12,7 @@ class MatchListScreen extends StatelessWidget {
         title: const Text('Match List'),
     ),
     body: StreamBuilder<QuerySnapshot>(
-    stream: FirebaseFirestore.instance.collection('Argentina vs Brazil').snapshots(),
+    stream: FirebaseFirestore.instance.collection('Football').snapshots(),
     builder: (context, snapshot) {
     if(snapshot.connectionState == ConnectionState.waiting){
     return const Center(

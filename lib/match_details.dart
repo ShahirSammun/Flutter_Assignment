@@ -17,7 +17,7 @@ class MatchDetailsScreen extends StatelessWidget {
         children: [
           StreamBuilder<DocumentSnapshot>(
             stream: FirebaseFirestore.instance
-                .collection('Argentina vs Brazil')
+                .collection('Football')
                 .doc(matchId)
                 .snapshots(),
             builder: (context, snapshot) {
@@ -56,14 +56,14 @@ class MatchDetailsScreen extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          "Time : ${item?.get('Time')}",
+                          "Time : ${item?.get('time')}",
                           style: const TextStyle(fontSize: 20),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Total Time : ${item?.get('TotalTime')}",
+                          "Total Time : ${item?.get('total_time')}",
                           style: const TextStyle(fontSize: 20),
                         ),
                       ],
