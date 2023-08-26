@@ -1,16 +1,10 @@
-# mobile_app
+Screenshot of the Football live Score App
 
-A new Flutter project.
+![Screenshot_20230826_154315](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/d5bd2373-0a0b-4115-b300-d079b537f7a7)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![Screenshot_20230826_162208](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/2434402a-3db0-49d2-b394-86a6dfd9859c)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screenshot_20230826_162240](https://github.com/ShahirSammun/Flutter_Assignment/assets/135459672/7e52ebd9-11ef-457d-b667-410ae5d325d6)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
