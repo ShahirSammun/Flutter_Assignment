@@ -11,9 +11,11 @@ class MatchListScreen extends StatelessWidget {
         appBar: AppBar(
         title: const Text('Match List'),
     ),
-    body: StreamBuilder<QuerySnapshot>(
+
+      body: StreamBuilder<QuerySnapshot>(
     stream: FirebaseFirestore.instance.collection('Football').snapshots(),
-    builder: (context, snapshot) {
+
+        builder: (context, snapshot) {
     if(snapshot.connectionState == ConnectionState.waiting){
     return const Center(
     child: CircularProgressIndicator(),
@@ -22,7 +24,8 @@ class MatchListScreen extends StatelessWidget {
     if(snapshot.connectionState == ConnectionState.active || snapshot.connectionState == ConnectionState.done){
     if(snapshot.hasError){
     return Center(
-    child: Text(snapshot.error.toString()),
+
+      child: Text(snapshot.error.toString()),
     );
     } else if(snapshot.hasData){
     return ListView.builder(
@@ -46,7 +49,7 @@ class MatchListScreen extends StatelessWidget {
     }
 
     }
-    return const SizedBox();
+     return const SizedBox();
     }
     ),
     );

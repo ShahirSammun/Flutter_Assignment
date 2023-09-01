@@ -13,6 +13,7 @@ class MatchDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(matchName),
       ),
+
       body: Column(
         children: [
           StreamBuilder<DocumentSnapshot>(
